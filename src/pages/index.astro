@@ -1,0 +1,119 @@
+---
+import "../style.css";
+import SocialLinks from "../components/social-links.astro";
+import WorkExperience from "@/components/work-experience.astro";
+import Hero from "@/components/hero.astro";
+import AboutMe from "@/components/about-me.astro";
+import Cartibuy from "@/components/cartibuy.astro";
+import NextApi from "@/components/next-api.astro";
+import Contact from "@/components/contact.astro";
+import EmailLink from "@/components/email-link.astro";
+---
+
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>Rizwan K - Full Stack Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Explore the portfolio of Rizwan K, a Full Stack Developer skilled in Next.js, TypeScript, and React. Discover featured projects like Cartibuy.sa and Tripeo, demonstrating expertise in building scalable web applications."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://riz1.in/" />
+    <meta
+      property="og:title"
+      content="Rizwan K - Full Stack Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Explore the portfolio of Rizwan K, a Full Stack Developer skilled in Next.js, TypeScript, and React. Discover featured projects like Cartibuy.sa and Tripeo, demonstrating expertise in building scalable web applications."
+    />
+    <meta property="og:image" content="https://riz1.in/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://riz1.in/" />
+    <meta
+      property="twitter:title"
+      content="Rizwan K - Full Stack Developer Portfolio"
+    />
+    <meta
+      property="twitter:description"
+      content="Explore the portfolio of Rizwan K, a Full Stack Developer skilled in Next.js, TypeScript, and React. Discover featured projects like Cartibuy.sa and Tripeo, demonstrating expertise in building scalable web applications."
+    />
+    <meta
+      property="twitter:image"
+      content="https://riz1.in/twitter-image.jpg"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
+    <!-- Additional SEO Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="Rizwan K, Full Stack Developer, Next.js, TypeScript, React, Cartibuy, Tripeo, Konverse AI"
+    />
+    <link rel="canonical" href="https://riz1.in/" />
+
+    <!-- Theme Color for Mobile -->
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Dublin Core Metadata -->
+    <meta name="DC.title" content="Rizwan K - Full Stack Developer Portfolio" />
+    <meta name="DC.creator" content="Rizwan K" />
+    <meta
+      name="DC.description"
+      content="Explore Rizwan K's professional portfolio as a Full Stack Developer. Projects include Cartibuy.sa, Tripeo, and Konverse AI, showcasing skills in React, Node.js, and scalable web applications."
+    />
+  </head>
+
+  <body>
+    <SocialLinks />
+    <section
+      class="lg:max-w-[1000px] xl:max-w-[1200px] w-full px-7 md:px-10 mx-auto h-screen"
+    >
+      <Hero />
+      <AboutMe />
+      <WorkExperience />
+      <section id="work" class="mt-10 mb-20 min-h-[85vh] mx-auto">
+        <h1
+          class="text-xl md:text-3xl whitespace-pre flex font-medium numbered-heading"
+        >
+          <span class="text-accent">03.</span>{" "}
+          <p class="ml-2">Some Things I've Built</p>
+        </h1>
+        <div class="flex flex-col gap-y-28">
+          <Cartibuy />
+          <NextApi />
+        </div>
+      </section>
+      <Contact />
+    </section>
+    <EmailLink />
+  </body>
+</html>

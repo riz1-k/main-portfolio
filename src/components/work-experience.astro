@@ -1,0 +1,155 @@
+---
+interface CompanyName {
+  label: string;
+  link: string;
+}
+
+interface Experience {
+  companyName: CompanyName;
+  position: string;
+  tasks: string[];
+  duration: {
+    start: string;
+    end: string;
+  };
+}
+
+const experiences: Experience[] = [
+  {
+    position: "Lead Full Stack Developer",
+    companyName: {
+      label: "Cartibuy.in",
+      link: "https://cartibuy.in",
+    },
+    duration: {
+      start: "2022 Aug",
+      end: "Present",
+    },
+    tasks: [
+      "Lead the development and maintenance of scalable web applications, ensuring optimal performance and functionality.",
+      "Collaborate seamlessly with cross-functional teams to deliver high-quality software solutions that meet project requirements.",
+      "Champion the implementation of industry best practices for code quality, testing, and performance optimization throughout the development lifecycle.",
+    ],
+  },
+  {
+    position: "Full Stack Developer",
+    companyName: {
+      label: "Tripeo",
+      link: "https://tripeo.vercel.app/",
+    },
+    duration: {
+      start: "2022 Mar",
+      end: "2022 Aug",
+    },
+    tasks: [
+      "Led the development of an industry-level Hotel Booking website as a Full Stack Developer, contributing to its creation from inception to completion.",
+      "Optimized web applications for maximum speed and scalability, enhancing overall user experience.",
+      "Collaborated closely with the design team to implement new user-facing features, ensuring a seamless and engaging interface.",
+      "Developed and implemented new product features using React.js, Node.js, and MongoDB, resulting in a 34% increase in user engagement.",
+    ],
+  },
+  {
+    position: "Frontend React Intern",
+    companyName: {
+      label: "Konverse AI",
+      link: "https://www.konverse.ai/",
+    },
+    duration: {
+      start: "2022 Jan",
+      end: "2022 Mar",
+    },
+    tasks: [
+      "Drive the development of innovative user-facing features using React.js to enhance the overall product experience.",
+      "Create reusable components and front-end libraries for future use, promoting efficiency and consistency in development.",
+      "Translate designs and wireframes into high-quality code, ensuring a seamless and visually appealing user interface.",
+    ],
+  },
+];
+---
+
+<div class="my-12 h-[85vh] md:w-[70%] mx-auto" id="experience">
+  <h1
+    class="text-xl md:text-3xl whitespace-pre flex font-medium numbered-heading"
+  >
+    <span class="text-accent">02.</span>
+    <p class="ml-2">Where I've Worked</p>
+  </h1>
+
+  <div class="mt-10 flex md:flex-row flex-col items-start">
+    <div
+      class="flex flex-row md:flex-col md:gap-y-2 gap-x-2 max-md:overflow-x-auto max-md:w-full"
+    >
+      {
+        experiences.map((experience, index) => (
+          <button
+            class="text-text-secondary hover:bg-background-secondary whitespace-pre py-2.5 transition-all border-l-[3px] hover:border-l-1 hover:border-accent border-background-primary hover:text-accent px-4 font-semibold text-left experience-btn"
+            data-index={index}
+          >
+            {experience.companyName.label}
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="md:ml-10 ml-3 mt-5">
+      {
+        experiences.map((experience, index) => (
+          <div class="experience-content hidden" data-index={index}>
+            <h1 class="text-text-primary text-2xl font-semibold">
+              {experience.position}{" "}
+              <a
+                href={experience.companyName.link}
+                target="_blank"
+                class="text-accent"
+              >
+                @ {experience.companyName.label}
+              </a>
+            </h1>
+            <p class="text-text-secondary py-2 font-medium">
+              {experience.duration.start} - {experience.duration.end}
+            </p>
+            <ul class="list-disc ml-4 my-2 space-y-2">
+              {experience.tasks.map((task) => (
+                <li class="text-text-tertiary">{task}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  // Show first experience by default
+  document
+    .querySelector('.experience-content[data-index="0"]')
+    ?.classList.remove("hidden");
+  document
+    .querySelector('.experience-btn[data-index="0"]')
+    ?.classList.add("text-accent", "border-accent");
+
+  // Add click handlers to buttons
+  const buttons = document.querySelectorAll(".experience-btn");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const index = button.getAttribute("data-index");
+
+      // Hide all experience content
+      document.querySelectorAll(".experience-content").forEach((content) => {
+        content.classList.add("hidden");
+      });
+
+      // Remove active state from all buttons
+      document.querySelectorAll(".experience-btn").forEach((btn) => {
+        btn.classList.remove("text-accent", "border-accent");
+      });
+
+      // Show selected experience and activate button
+      document
+        .querySelector(`.experience-content[data-index="${index}"]`)
+        ?.classList.remove("hidden");
+      button.classList.add("text-accent", "border-accent");
+    });
+  });
+</script>
