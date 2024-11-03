@@ -8,6 +8,7 @@ import Cartibuy from "@/components/cartibuy.astro";
 import NextApi from "@/components/next-api.astro";
 import Contact from "@/components/contact.astro";
 import EmailLink from "@/components/email-link.astro";
+import Navbar from '@/components/navbar.astro';
 ---
 
 <html lang="en" data-theme="dark">
@@ -93,6 +94,7 @@ import EmailLink from "@/components/email-link.astro";
   </head>
 
   <body>
+    <Navbar />
     <SocialLinks />
     <section
       class="lg:max-w-[1000px] xl:max-w-[1200px] w-full px-7 md:px-10 mx-auto h-screen"
@@ -100,7 +102,7 @@ import EmailLink from "@/components/email-link.astro";
       <Hero />
       <AboutMe />
       <WorkExperience />
-      <section id="work" class="mt-10 mb-20 min-h-[85vh] mx-auto">
+      <section id="work" class="mb-20 min-h-[85vh] mx-auto">
         <h1
           class="text-xl md:text-3xl whitespace-pre flex font-medium numbered-heading"
         >
